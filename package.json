@@ -1,0 +1,42 @@
+{
+  "name": "electron_builder_app",
+  "version": "0.0.1",
+  "private": true,
+  "author": "hongfei.hu <hongfei.hu@plaso.me>",
+  "scripts": {
+    "build": "max build",
+    "dev": "max dev",
+    "electron:build:linux": "max build electron --linux",
+    "electron:build:mac": "max build electron --mac",
+    "electron:build:win": "max build electron --win",
+    "electron:dev": "max dev electron",
+    "electron:dir": "max build electron --dir",
+    "electron:init": "max electron init",
+    "format": "prettier --cache --write .",
+    "postinstall": "max setup",
+    "prepare": "husky",
+    "rebuild-deps": "electron-builder install-app-deps",
+    "setup": "max setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@ant-design/pro-components": "^2.4.4",
+    "@umijs/max": "^4.4.11",
+    "antd": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.7",
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
+    "electron": "^37.1.0",
+    "electron-builder": "^26.0.12",
+    "husky": "^9",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "prettier-plugin-packagejson": "^2.4.3",
+    "typescript": "^5.0.3",
+    "umi-plugin-electron-builder": "^4.0.8"
+  }
+}
