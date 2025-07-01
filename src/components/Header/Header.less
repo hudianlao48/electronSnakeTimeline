@@ -1,12 +1,13 @@
 .header {
   width: 100%;
   app-region: drag;
-  padding-left: 10px;
+  padding: 10px;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
+  background-image: linear-gradient(rgba(0, 0, 0, 50%), rgba(0, 0, 0, 0%));
 
   .controlBtnArea {
     app-region: no-drag;
@@ -16,4 +17,5 @@
 .menuDrawer {
   background-color: rgba(0, 0, 0, 50%) !important;
   backdrop-filter: blur(10px);
+  app-region: no-drag;
 }

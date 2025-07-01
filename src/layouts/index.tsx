@@ -1,23 +1,21 @@
-import { useEffect } from 'react';
-import { Outlet, useModel } from '@umijs/max'
-import { ConfigProvider, theme } from 'antd';
 import Header from '@/components/Header';
-import styles from './index.less'
+import { Outlet, useModel } from '@umijs/max';
+import { ConfigProvider, theme } from 'antd';
+import { useEffect } from 'react';
+import styles from './index.less';
 
 export default () => {
-  const { getTodayImage } = useModel('image');
-
-  async function init() {
+  const { currentImageSource, getTodayImage } = useModel('image');
+  async function toGetTodayImage() {
     try {
-      const res = await getTodayImage();
-      console.log(res);
+      await getTodayImage();
     } catch (e) {
       console.warn(e);
     }
   }
   useEffect(() => {
-    init().then()
-  }, [])
+    toGetTodayImage().then();
+  }, [currentImageSource]);
   return (
     <ConfigProvider
       theme={{
@@ -29,5 +27,5 @@ export default () => {
         <Outlet />
       </div>
     </ConfigProvider>
-  )
-}
+  );
+};

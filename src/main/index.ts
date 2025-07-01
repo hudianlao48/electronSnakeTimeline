@@ -1,4 +1,4 @@
-import { app, BrowserWindow, protocol } from 'electron';
+import { app, BrowserWindow, ipcMain, protocol } from 'electron';
 import * as path from 'path';
 import createProtocol from './createProtocol';
 
@@ -40,6 +40,10 @@ function createWindow() {
   }
   mainWindow.setAspectRatio(16 / 9);
 }
+
+ipcMain.on('app-close', () => {
+  app.quit();
+});
 
 app.on('ready', async () => {
   createWindow();

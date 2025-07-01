@@ -1,4 +1,4 @@
-import { contextBridge } from 'electron';
+import { contextBridge, ipcRenderer } from 'electron';
 
 const apiKey = 'electron';
 
@@ -7,3 +7,7 @@ const api: any = {
 };
 
 contextBridge.exposeInMainWorld(apiKey, api);
+
+contextBridge.exposeInMainWorld('electronAPI', {
+  closeApp: () => ipcRenderer.send('app-close'),
+});
