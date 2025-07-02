@@ -4,21 +4,21 @@ import { useState } from 'react';
 import styles from './Home.less';
 
 export default function HomePage() {
-  const { todayImage } = useModel('image');
+  const { currentImage } = useModel('image');
   const [loading, setLoading] = useState(true);
 
-  console.log(todayImage);
+  console.log(currentImage);
   return (
     <div className={styles.home}>
       <Spin spinning={loading}>
         <img
-          src={todayImage?.imgurl}
+          src={currentImage?.imgurl}
           alt=""
           referrerPolicy="no-referrer"
           className={styles.backgroundImage}
           onLoad={() => setLoading(false)}
         />
-        <div className={styles.contentWrapper}>{todayImage?.name}</div>
+        <div className={styles.contentWrapper}>{currentImage?.name}</div>
       </Spin>
     </div>
   );
